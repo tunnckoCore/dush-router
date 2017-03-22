@@ -1,0 +1,73 @@
+{
+  "name": "dush-router",
+  "version": "0.1.1",
+  "description": "A simple regex-based router for `dush`, `base`, `minibase` and anything based on them. Works on Browser and Node.js",
+  "repository": "tunnckoCore/dush-router",
+  "author": "Charlike Mike Reagent <@tunnckoCore> (https://i.am.charlike.online)",
+  "precommit.silent": true,
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "standard index.js test.js --fix --verbose",
+    "test": "npm-run-all -s lint test:*",
+    "test:api": "nyc --reporter lcov node test.js",
+    "test:report": "nyc report",
+    "prerelease": "npm test",
+    "release": "standard-version --sign --no-verify",
+    "git": "npm-run-all -s git:*",
+    "git:add": "git add --all",
+    "git:cz": "git-cz",
+    "commit": "npm-run-all -s test git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "commitizen": "~2.7.0",
+    "cz-conventional-changelog": "1.1.5",
+    "dush": "^3.0.0",
+    "mukla": "^0.4.9",
+    "npm-run-all": "~3.1.2",
+    "nyc": "^10.1.2",
+    "pre-commit": "^1.2.2",
+    "standard": "^9.0.0",
+    "standard-version": "^4.0.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "verb": {
+    "run": true,
+    "toc": {
+      "render": true,
+      "method": "preWrite",
+      "maxdepth": 3
+    },
+    "layout": "empty",
+    "tasks": [
+      "readme"
+    ],
+    "related": {
+      "list": [
+        "always-done",
+        "minibase",
+        "try-catch-core"
+      ],
+      "highlight": "always-done"
+    },
+    "lint": {
+      "reflinks": true
+    }
+  },
+  "nyc": {
+    "check-coverage": true,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "lines": 100
+  }
+}
