@@ -76,14 +76,16 @@
       "charlike",
       "commitizen",
       "dezalgo",
+      "dush",
+      "dush-methods",
+      "dush-tap-report",
+      "minibase",
       "once",
       "standard-version",
       "verb",
       "verb-generate-readme",
-      "dush",
-      "dush-methods",
-      "dush-tap-report",
-      "minibase"
+      "dush-no-chaining",
+      "type"
     ],
     "lint": {
       "reflinks": true

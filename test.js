@@ -36,7 +36,10 @@ test('should `.createRoute` return a Route object', function (done) {
 })
 
 test('should route.match(pathname) return object on match', function (done) {
-  var route = app.createRoute('/user/:name', function () {})
+  var called = 0
+  var route = app.createRoute('/user/:name', function () {
+    called++
+  })
 
   test.deepEqual(route.keys, ['name'])
 
@@ -44,13 +47,18 @@ test('should route.match(pathname) return object on match', function (done) {
   test.strictEqual(typeof params, 'object')
   test.strictEqual(params.name, 'quxie')
   test.strictEqual(app._routes.length, 0)
+  test.strictEqual(called, 0)
   done()
 })
 
 test('should `route.match(pathname)` return null if match but no params', function (done) {
-  var route = app.createRoute('/hi', function heya () {})
+  var called = 0
+  var route = app.createRoute('/hi', function heya () {
+    called++
+  })
   var res = route.match('/hi')
   test.strictEqual(res, null)
+  test.strictEqual(called, 0)
   done()
 })
 

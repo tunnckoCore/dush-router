@@ -17,6 +17,10 @@ a plugins for [dush][] microscopic event emitter with simple & powerful plugin s
 - [Install](#install)
 - [Usage](#usage)
 - [API](#api)
+  * [router()](#router)
+  * [.addRoute](#addroute)
+  * [.createRoute](#createroute)
+  * [.navigate](#navigate)
 - [Related](#related)
 - [Contributing](#contributing)
 - [Building docs](#building-docs)
@@ -47,6 +51,156 @@ const dushRouter = require('dush-router')
 ```
 
 ## API
+
+### [router()](index.js#L37)
+A plugin that adds `.createRoute`, `.addRoute` and `.navigate` methods for any app based on [dush][], [base][] or [minibase][]. Notice that this plugin emit events - `route` if match, and `notFound` if not route found on defined routes.
+
+**Params**
+
+* `opts` **{Object}**: no options currently    
+* `returns` **{Function}**: a plugin function which should be passed to `.use` method  
+
+**Example**
+
+```js
+var dush = require('dush')
+var router = require('dush-router')
+
+var app = dush()
+app.use(router())
+
+console.log(app._routes) // => []
+console.log(app.createRoute) // => function
+console.log(app.addRoute) // => function
+console.log(app.navigate) // => function
+```
+
+### [.addRoute](index.js#L85)
+> Add/register an actual `route` with `handler` to the `app._routes` array. It uses `.createRoute` method to create an "route" object that is then pushed to `app._routes`.
+
+_**Note:** If route handler returns something the `app.navigate` method
+will return that exact value on route match._
+
+**Params**
+
+* `route` **{String}**: a simple route, express-like definition, e.g. `/user/:id`    
+* `handler` **{Function}**: a function to be called when `route` match    
+* `returns` **{Object}**: instance for chaining  
+
+**Example**
+
+```js
+app.addRoute('/foobar', (context) => {
+  console.log('state:', context.state) // => { hello: 'world' }
+  console.log('params:', context.params) // => {}
+  console.log('route:', context.route) // => '/foobar'
+  console.log('pathname:', context.pathname) // => '/foobar'
+})
+
+app.navigate('/foobar', { hello: 'world' })
+
+// or with params
+app.addRoute('/user/:id', ({ state, params, route, pathname }) => {
+  console.log('Hello ', state.username) // => 'Hello Charlike'
+  console.log('Your ID is', params.id) // => 'Your ID is 123'
+
+  console.log('route', route) // => '/user/:id'
+  console.log('path', pathname) // => '/user/123'
+})
+
+app.navigate('/user/123', { username: 'Charlike' })
+```
+
+### [.createRoute](index.js#L142)
+> Just create a `route` with `handler`, same as `.addRoute` method, but without adding it to `app._routes` array. This "route" object contains `.match`, `.regex`, `.route` and `.handler` properties. Where `.match` is a function that accepts single argument "pathname" to check against given `route`, `.handler` is the passed `handler` function, `.regex` is the generated regex for that `route` string and the `.route` is the given `route`. The `.match` function returns `null` if passed "pathname" string match to the given `route` but not params and `false` if passed "pathname" not match.
+
+_**Note:** This method does not call the given route handler._
+
+**Params**
+
+* `route` **{String}**: a simple route, express-like definition, e.g. `/user/:id`    
+* `handler` **{Function}**: a function to be called when `route` match    
+* `returns` **{Object}**: a "route" object with few properties  
+
+**Example**
+
+```js
+const r = app.createRoute('/user/:id', function abc (params) {
+  console.log('hi user with id:', params.id)
+})
+
+console.log(r.match) // => function
+console.log(r.handler) // => function
+console.log(r.handler.name) // => 'abc'
+console.log(r.route) // => '/user/:id'
+console.log(r.regex) // => /^\/user\/(\w+)$/i
+
+var params = r.match('/user/123')
+console.log(params) // => { id: 123 }
+
+// manually call the route handler
+if (params !== false) {
+  r.handler(params || {})
+}
+
+// not match, so returns `false`
+params = r.match('/foobar')
+console.log(params) // => false
+
+var route = app.createRoute('/foobie', () => {})
+
+// match, but no params, so return `null`
+var res = route.match('/foobie')
+console.log(res) // => null
+```
+
+### [.navigate](index.js#L197)
+> Manually navigate to some route with url `pathname` and returns what the route handler returns. You can pass a custom `state` which will be passed to route handler's context as `context.state`. This method fires `notFound` event when not found match, and `route` when find a route.
+
+**Params**
+
+* `pathname` **{String}**: a url to navigate to    
+* `state` **{any}**: optionally pass a "state", passed to route's handler    
+* `returns` **{any}**: basically returns what the route handler return  
+
+**Example**
+
+```js
+app.on('notFound', (context) => {
+  console.log(`sorry ${context.pathname} page not exist`)
+  console.log('this is incoming state:', context.state)
+})
+app.navigate('/foo/bar/qux', { aa: 11 })
+
+app.addRoute('/hello/:place', (context) => {
+  console.log('hi', context.params.place) // => 'hi world'
+})
+app.navigate('/hello/world')
+
+// remove default "on route" handler
+app.off('route')
+
+// and define your custom one,
+// to change route handler arguments
+app.on('route', (handler, context) => {
+  return handler(context.state, context.params)
+})
+
+// notice the handler signature, it's different than
+// the default one seen in above `/hello/:place` route
+app.addRoute('/user/:name', (state, params) => {
+  var name = params.name || state.username
+  console.log('name:', name) // => 'name: john' or 'name: charlike'
+  return name
+})
+
+// it returns what the route handler return
+var res = app.navigate('/user/john')
+console.log(res) // => 'john'
+
+var ret = app.navigate('/user', { username: 'charlike '})
+console.log(ret) // => 'charlike'
+```
 
 ## Related
 - [dush-methods](https://www.npmjs.com/package/dush-methods): Plugin for `dush` and anything based on it. It adds helper `.define` and `.delegate` methods | [homepage](https://github.com/tunnckocore/dush-methods#readme "Plugin for `dush` and anything based on it. It adds helper `.define` and `.delegate` methods")
@@ -109,11 +263,13 @@ _Project scaffolded using [charlike][] cli._
 [commitizen]: https://github.com/commitizen/cz-cli
 [dezalgo]: https://github.com/npm/dezalgo
 [dush-methods]: https://github.com/tunnckocore/dush-methods
+[dush-no-chaining]: https://github.com/tunnckocore/dush-no-chaining
 [dush-tap-report]: https://github.com/tunnckocore/dush-tap-report
 [dush]: https://github.com/tunnckocore/dush
 [minibase]: https://github.com/node-minibase/minibase
 [once]: https://github.com/isaacs/once
 [standard-version]: https://github.com/conventional-changelog/standard-version
+[type]: https://github.com/Gozala/type
 [verb-generate-readme]: https://github.com/verbose/verb-generate-readme
 [verb]: https://github.com/verbose/verb
 
@@ -144,4 +300,3 @@ _Project scaffolded using [charlike][] cli._
 [paypalme-url]: https://www.paypal.me/tunnckoCore
 [paypalme-img]: https://img.shields.io/badge/paypal-donate-brightgreen.svg
 
-[dush-no-chaining]: https://github.com/tunnckocore/dush-no-chaining
