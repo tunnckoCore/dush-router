@@ -40,6 +40,13 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "nyc": {
+    "check-coverage": true,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "lines": 100
+  },
   "verb": {
     "run": true,
     "toc": {
@@ -53,21 +60,33 @@
     ],
     "related": {
       "list": [
-        "always-done",
+        "dush",
+        "dush-tap-report",
+        "dush-no-chaining",
+        "dush-methods",
+        "minibase-create-plugin",
         "minibase",
-        "try-catch-core"
-      ],
-      "highlight": "always-done"
+        "minibase-is-registered"
+      ]
     },
+    "reflinks": [
+      "always-done",
+      "async-done",
+      "base",
+      "charlike",
+      "commitizen",
+      "dezalgo",
+      "once",
+      "standard-version",
+      "verb",
+      "verb-generate-readme",
+      "dush",
+      "dush-methods",
+      "dush-tap-report",
+      "minibase"
+    ],
     "lint": {
       "reflinks": true
     }
-  },
-  "nyc": {
-    "check-coverage": true,
-    "statements": 100,
-    "functions": 100,
-    "branches": 100,
-    "lines": 100
   }
 }
