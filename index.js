@@ -174,16 +174,18 @@ module.exports = function dushRouter () {
      * // notice the handler signature, it's different than
      * // the default one seen in above `/hello/:place` route
      * app.addRoute('/user/:name', (state, params) => {
-     *   var name = params.name || state.username
+     *   var name = state.username || params.name
+     *
      *   console.log('name:', name) // => 'name: john' or 'name: charlike'
+     *
      *   return name
      * })
      *
      * // it returns what the route handler return
      * var res = app.navigate('/user/john')
-     * console.log(res) // => 'john'
+     * console.log(res) // => 'john', because there's no passed state
      *
-     * var ret = app.navigate('/user', { username: 'charlike '})
+     * var ret = app.navigate('/user/hey', { username: 'charlike '})
      * console.log(ret) // => 'charlike'
      * ```
      *

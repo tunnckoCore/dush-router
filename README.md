@@ -154,7 +154,7 @@ var res = route.match('/foobie')
 console.log(res) // => null
 ```
 
-### [.navigate](index.js#L197)
+### [.navigate](index.js#L199)
 > Manually navigate to some route with url `pathname` and returns what the route handler returns. You can pass a custom `state` which will be passed to route handler's context as `context.state`. This method fires `notFound` event when not found match, and `route` when find a route.
 
 **Params**
@@ -189,16 +189,18 @@ app.on('route', (handler, context) => {
 // notice the handler signature, it's different than
 // the default one seen in above `/hello/:place` route
 app.addRoute('/user/:name', (state, params) => {
-  var name = params.name || state.username
+  var name = state.username || params.name
+
   console.log('name:', name) // => 'name: john' or 'name: charlike'
+
   return name
 })
 
 // it returns what the route handler return
 var res = app.navigate('/user/john')
-console.log(res) // => 'john'
+console.log(res) // => 'john', because there's no passed state
 
-var ret = app.navigate('/user', { username: 'charlike '})
+var ret = app.navigate('/user/hey', { username: 'charlike '})
 console.log(ret) // => 'charlike'
 ```
 
