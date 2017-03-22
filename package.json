@@ -34,7 +34,19 @@
   "files": [
     "index.js"
   ],
-  "keywords": [],
+  "keywords": [
+    "base",
+    "baseplugin",
+    "dush",
+    "dushplugin",
+    "minibaseplugin",
+    "plugin",
+    "regex",
+    "router",
+    "simple",
+    "simple-router",
+    "small"
+  ],
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
