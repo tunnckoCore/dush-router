@@ -90,14 +90,17 @@
       "dezalgo",
       "dush",
       "dush-methods",
+      "dush-no-chaining",
       "dush-tap-report",
       "minibase",
       "once",
       "standard-version",
+      "type",
       "verb",
       "verb-generate-readme",
-      "dush-no-chaining",
-      "type"
+      "bel",
+      "nanomorph",
+      "path-match"
     ],
     "lint": {
       "reflinks": true
