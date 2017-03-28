@@ -165,3 +165,21 @@ test('should allow custom `.on("route")` to change handler arguments', function 
   test.strictEqual(called, 3)
   done()
 })
+
+test('should add multiple handlers on same route', function (done) {
+  var app = dush().use(router())
+  var called = 0
+
+  app.addRoute('/foo/:id', function (ctx) {
+    test.deepStrictEqual(ctx.params, { id: 'bar' })
+    called++
+  })
+  app.addRoute('/foo/:id', function (ctx) {
+    test.deepStrictEqual(ctx.params, { id: 'bar' })
+    test.strictEqual(called, 1)
+    called++
+  })
+  app.navigate('/foo/bar')
+  test.strictEqual(called, 2)
+  done()
+})
