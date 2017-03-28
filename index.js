@@ -223,6 +223,7 @@ module.exports = function dushRouter () {
 
         app.emit('route', function viewFn () {
           el = r.handler.apply(app, arguments)
+          return el
         }, context, el)
       }
 

@@ -183,3 +183,17 @@ test('should add multiple handlers on same route', function (done) {
   test.strictEqual(called, 2)
   done()
 })
+
+test('should passed handler to `route` event return non-undefined', function (done) {
+  var app = dush().use(router())
+  app.off('route')
+  app.on('route', function (viewFn, context) {
+    var ret = viewFn(context)
+    test.strictEqual(ret, 123, 'should be non-undefined')
+    done()
+  })
+  app.addRoute('/foo/quxie', function () {
+    return 123
+  })
+  app.navigate('/foo/quxie')
+})
