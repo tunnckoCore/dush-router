@@ -4,7 +4,7 @@
 
 [![code climate][codeclimate-img]][codeclimate-url] 
 [![code style][standard-img]][standard-url] 
-[![linux build][travis-img]][travis-url] 
+[![linux build][circle-img]][circle-url] 
 [![windows build][appveyor-img]][appveyor-url] 
 [![code coverage][coverage-img]][coverage-url] 
 [![dependency status][david-img]][david-url]
@@ -385,8 +385,8 @@ _Project scaffolded using [charlike][] cli._
 [codeclimate-url]: https://codeclimate.com/github/tunnckoCore/dush-router
 [codeclimate-img]: https://img.shields.io/codeclimate/github/tunnckoCore/dush-router.svg
 
-[travis-url]: https://travis-ci.org/tunnckoCore/dush-router
-[travis-img]: https://img.shields.io/travis/tunnckoCore/dush-router/master.svg?label=linux
+[circle-url]: https://circleci.com/gh/tunnckoCore/dush-router
+[circle-img]: https://img.shields.io/circleci/project/github/tunnckoCore/dush-router/master.svg?label=linux
 
 [appveyor-url]: https://ci.appveyor.com/project/tunnckoCore/dush-router
 [appveyor-img]: https://img.shields.io/appveyor/ci/tunnckoCore/dush-router/master.svg?label=windows
