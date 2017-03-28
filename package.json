@@ -1,6 +1,6 @@
 {
   "name": "dush-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple regex-based router for `dush`, `base`, `minibase` and anything based on them. Works on Browser and Node.js",
   "repository": "tunnckoCore/dush-router",
   "author": "Charlike Mike Reagent <@tunnckoCore> (https://i.am.charlike.online)",
