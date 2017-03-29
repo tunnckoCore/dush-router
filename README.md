@@ -417,7 +417,7 @@ _Project scaffolded using [charlike][] cli._
 [verb-generate-readme]: https://github.com/verbose/verb-generate-readme
 [verb]: https://github.com/verbose/verb
 
-[license-url]: https://www.npmjs.com/package/dush-router
+[license-url]: https://github.com/tunnckoCore/dush-router/blob/master/LICENSE
 [license-img]: https://img.shields.io/npm/l/dush-router.svg
 
 [downloads-url]: https://www.npmjs.com/package/dush-router
