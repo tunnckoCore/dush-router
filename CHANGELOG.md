@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/tunnckocore/dush-router/compare/v1.0.1...v1.0.2) (2017-03-29)
+
+
+### Bug Fixes
+
+* **ci:** add circleci ([9789bf8](https://github.com/tunnckocore/dush-router/commit/9789bf8))
+* **ci:** robust testing with Circle CI ! ([a36264f](https://github.com/tunnckocore/dush-router/commit/a36264f))
+* **circle:** rename ([c2aacb1](https://github.com/tunnckocore/dush-router/commit/c2aacb1))
+* **readme:** tweak license badge, point to the LICENSE file ([7bf78cf](https://github.com/tunnckocore/dush-router/commit/7bf78cf))
+* **readme:** update badges, move to CircleCI! ([9106e0a](https://github.com/tunnckocore/dush-router/commit/9106e0a))
+* **template:** update readme template to the new for all repos ([c4dbe16](https://github.com/tunnckocore/dush-router/commit/c4dbe16))
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/tunnckocore/dush-router/compare/v1.0.0...v1.0.1) (2017-03-28)
 
