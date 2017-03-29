@@ -1,17 +1,59 @@
-# dush-router [![NPM version](https://img.shields.io/npm/v/dush-router.svg?style=flat)](https://www.npmjs.com/package/dush-router) [![mit license][license-img]][license-url] [![NPM monthly downloads](https://img.shields.io/npm/dm/dush-router.svg?style=flat)](https://npmjs.org/package/dush-router) [![npm total downloads][downloads-img]][downloads-url]
+# dush-router [![npm version][npmv-img]][npmv-url] [![github tags][ghtag-img]][ghtag-url] [![mit license][license-img]][license-url]
 
 > A simple regex-based router for `dush`, `base`, `minibase` and anything based on them. Works on Browser and Node.js
 
-[![code climate][codeclimate-img]][codeclimate-url] 
-[![code style][standard-img]][standard-url] 
-[![linux build][circle-img]][circle-url] 
-[![windows build][appveyor-img]][appveyor-url] 
-[![code coverage][coverage-img]][coverage-url] 
-[![dependency status][david-img]][david-url]
-[![paypal donate][paypalme-img]][paypalme-url] 
-
 _You might also be interested in [dush-no-chaining][], [dush-methods][] and [dush-tap-report][], 
 a plugins for [dush][] microscopic event emitter with simple & powerful plugin system._
+
+## Quality 👌
+
+> By using [commitizen][czfriendly-url] and [conventional commit messages][conventional-messages-url], 
+maintaining meaningful [ChangeLog][changelogmd-url] 
+and commit history based on [global conventions][conventions-url], 
+following [StandardJS][standard-url] code style through [ESLint][eslint-url] and
+having always up-to-date dependencies through integrations
+like [GreenKeeper][gk-integration-url] and [David-DM][daviddm-url] service,
+this package has top quality.
+
+[![code climate][codeclimate-img]][codeclimate-url] 
+[![code style][standard-img]][standard-url] 
+[![commitizen friendly][czfriendly-img]][czfriendly-url] 
+[![greenkeeper friendly][gkfriendly-img]][gkfriendly-url] 
+[![dependencies][daviddm-deps-img]][daviddm-deps-url] 
+<!-- uncomment when need -->
+<!-- [![develop deps][daviddm-devdeps-img]][daviddm-devdeps-url] -->
+
+## Stability 💯
+
+> By following [Semantic Versioning][semver-url] through [standard-version][] releasing tool, 
+this package is very stable and its tests are passing both on [Windows (AppVeyor)][appveyor-ci-url] 
+and [Linux (CircleCI)][circle-ci-url] with results 
+from 100% to [400%][absolute-coverage-url] test coverage, reported respectively
+by [CodeCov][codecov-coverage-url] and [nyc (istanbul)][nyc-istanbul-url].
+
+[![following semver][following-semver-img]][following-semver-url] 
+[![semantic releases][strelease-img]][strelease-url] 
+[![linux build][circle-img]][circle-url] 
+[![windows build][appveyor-img]][appveyor-url] 
+[![code coverage][codecov-img]][codecov-url] 
+[![nyc coverage][istanbulcov-img]][istanbulcov-url] 
+
+## Support 🤝
+
+> If you have any problems, consider opening [an issue][open-issue-url],
+ping me on twitter ([@tunnckoCore][tunnckocore-twitter-url]),
+join the [support chat][supportchat-url] room
+or queue a [live session][codementor-url] on CodeMentor with me.
+If you don't have any problems, you're using it somewhere or
+you just enjoy this product, then please consider [donating some cash][paypalme-url] at PayPal,
+since this is [OPEN Open Source][opensource-project-url] project made
+with :heart: at [Sofia, Bulgaria][bulgaria-url] 🇧🇬.
+
+[![tunnckoCore support][supportchat-img]][supportchat-url] 
+[![code mentor][codementor-img]][codementor-url] 
+[![paypal donate][paypalme-img]][paypalme-url] 
+[![NPM monthly downloads](https://img.shields.io/npm/dm/dush-router.svg?style=flat)](https://npmjs.org/package/dush-router) 
+[![npm total downloads][downloads-img]][downloads-url] 
 
 ## Highlights :sparkles:
 - **Small:** Really small and lightweight
@@ -312,13 +354,13 @@ it is pretty small and easy to understand.
 - [minibase](https://www.npmjs.com/package/minibase): Minimalist alternative for Base. Build complex APIs with small units called plugins. Works well with most of the already existing… [more](https://github.com/node-minibase/minibase#readme) | [homepage](https://github.com/node-minibase/minibase#readme "Minimalist alternative for Base. Build complex APIs with small units called plugins. Works well with most of the already existing [base][] plugins.")
 
 ## Contributing
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/tunnckoCore/dush-router/issues/new).  
-Please read the [contributing guidelines](CONTRIBUTING.md) for advice on opening issues, pull requests, and coding standards.  
-If you need some help and can spent some cash, feel free to [contact me at CodeMentor.io](https://www.codementor.io/tunnckocore?utm_source=github&utm_medium=button&utm_term=tunnckocore&utm_campaign=github) too.
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue][open-issue-url].  
+Please read the [contributing guidelines][contributing-url] for advice on opening issues, pull requests, and coding standards.  
+If you need some help and can spent some cash, feel free to [contact me at CodeMentor.io][codementor-url] too.
 
 **In short:** If you want to contribute to that project, please follow these things
 
-1. Please DO NOT edit [README.md](README.md), [CHANGELOG.md](CHANGELOG.md) and [.verb.md](.verb.md) files. See ["Building docs"](#building-docs) section.
+1. Please DO NOT edit [README.md](README.md), [CHANGELOG.md][changelogmd-url] and [.verb.md](.verb.md) files. See ["Building docs"](#building-docs) section.
 2. Ensure anything is okey by installing the dependencies and run the tests. See ["Running tests"](#running-tests) section.
 3. Always use `npm run commit` to commit changes instead of `git commit`, because it is interactive and user-friendly. It uses [commitizen][] behind the scenes, which follows Conventional Changelog idealogy.
 4. Do NOT bump the version in package.json. For that we use `npm run release`, which is [standard-version][] and follows Conventional Changelog idealogy.
@@ -353,7 +395,7 @@ Copyright © 2017, [Charlike Mike Reagent](https://i.am.charlike.online). Releas
 
 ***
 
-_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.4.3, on March 28, 2017._  
+_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.4.3, on March 29, 2017._  
 _Project scaffolded using [charlike][] cli._
 
 [always-done]: https://github.com/hybridables/always-done
@@ -372,7 +414,6 @@ _Project scaffolded using [charlike][] cli._
 [once]: https://github.com/isaacs/once
 [path-match]: https://github.com/pillarjs/path-match
 [standard-version]: https://github.com/conventional-changelog/standard-version
-[type]: https://github.com/Gozala/type
 [verb-generate-readme]: https://github.com/verbose/verb-generate-readme
 [verb]: https://github.com/verbose/verb
 
@@ -391,15 +432,64 @@ _Project scaffolded using [charlike][] cli._
 [appveyor-url]: https://ci.appveyor.com/project/tunnckoCore/dush-router
 [appveyor-img]: https://img.shields.io/appveyor/ci/tunnckoCore/dush-router/master.svg?label=windows
 
-[coverage-url]: https://codecov.io/gh/tunnckoCore/dush-router
-[coverage-img]: https://img.shields.io/codecov/c/github/tunnckoCore/dush-router/master.svg
+[codecov-url]: https://codecov.io/gh/tunnckoCore/dush-router
+[codecov-img]: https://img.shields.io/codecov/c/github/tunnckoCore/dush-router/master.svg?label=codecov
 
-[david-url]: https://david-dm.org/tunnckoCore/dush-router
-[david-img]: https://img.shields.io/david/tunnckoCore/dush-router.svg
+[daviddm-deps-url]: https://david-dm.org/tunnckoCore/dush-router
+[daviddm-deps-img]: https://img.shields.io/david/tunnckoCore/dush-router.svg
+
+[daviddm-devdeps-url]: https://david-dm.org/tunnckoCore/dush-router?type=dev
+[daviddm-devdeps-img]: https://img.shields.io/david/dev/tunnckoCore/dush-router.svg
+
+[ghtag-url]: https://github.com/tunnckoCore/dush-router/releases/tag/v1.0.1
+[ghtag-img]: https://img.shields.io/github/tag/tunnckoCore/dush-router.svg?label=github%20tag
+
+[npmv-url]: https://www.npmjs.com/package/dush-router
+[npmv-img]: https://img.shields.io/npm/v/dush-router.svg?label=npm%20version
 
 [standard-url]: https://github.com/feross/standard
 [standard-img]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 
 [paypalme-url]: https://www.paypal.me/tunnckoCore
 [paypalme-img]: https://img.shields.io/badge/paypal-donate-brightgreen.svg
+
+[czfriendly-url]: http://commitizen.github.io/cz-cli
+[czfriendly-img]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
+
+[gkfriendly-url]: https://greenkeeper.io/
+[gkfriendly-img]: https://img.shields.io/badge/greenkeeper-friendly-brightgreen.svg
+
+[codementor-url]: https://www.codementor.io/tunnckocore?utm_source=github&utm_medium=button&utm_term=tunnckocore&utm_campaign=github
+[codementor-img]: https://img.shields.io/badge/code%20mentor-live%20session-brightgreen.svg
+
+[istanbulcov-url]: https://twitter.com/tunnckoCore/status/841768516965568512
+[istanbulcov-img]: https://img.shields.io/badge/istanbul-400%25-brightgreen.svg
+
+[following-semver-url]: http://semver.org
+[following-semver-img]: https://img.shields.io/badge/following-semver-brightgreen.svg
+
+[strelease-url]: https://github.com/conventional-changelog/standard-version
+[strelease-img]: https://img.shields.io/badge/using-standard%20version-brightgreen.svg
+
+[supportchat-url]: https://gitter.im/tunnckoCore/support
+[supportchat-img]: https://img.shields.io/gitter/room/tunnckoCore/support.svg
+
+[bulgaria-url]: https://www.google.bg/search?q=Sofia%2C+Bulgaria "One of the top 10 best places for start-up business in the world, especially in IT technologies"
+
+[changelogmd-url]: https://github.com/tunnckoCore/dush-router/blob/master/CHANGELOG.md
+[conventions-url]: https://github.com/bcoe/conventional-changelog-standard/blob/master/convention.md
+[tunnckocore-twitter-url]: https://twitter.com/tunnckoCore
+[opensource-project-url]: http://openopensource.org
+[nyc-istanbul-url]: https://istanbul.js.org
+[circle-ci-url]: https://circleci.com
+[appveyor-ci-url]: https://appveyor.com
+[codecov-coverage-url]: https://codecov.io
+[semver-url]: http://semver.org
+[eslint-url]: http://eslint.org
+[conventional-messages-url]: https://github.com/conventional-changelog/conventional-changelog
+[gk-integration-url]: https://github.com/integration/greenkeeper
+[daviddm-url]: https://david-dm.org
+[open-issue-url]: https://github.com/tunnckoCore/dush-router/issues/new
+[contributing-url]: https://github.com/tunnckoCore/dush-router/blob/master/CONTRIBUTING.md
+[absolute-coverage-url]: https://github.com/tunnckoCore/dush-router/blob/master/package.json
 

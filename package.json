@@ -85,6 +85,7 @@
       "always-done",
       "async-done",
       "base",
+      "bel",
       "charlike",
       "commitizen",
       "dezalgo",
@@ -93,14 +94,12 @@
       "dush-no-chaining",
       "dush-tap-report",
       "minibase",
-      "once",
-      "standard-version",
-      "type",
-      "verb",
-      "verb-generate-readme",
-      "bel",
       "nanomorph",
-      "path-match"
+      "once",
+      "path-match",
+      "standard-version",
+      "verb",
+      "verb-generate-readme"
     ],
     "lint": {
       "reflinks": true
