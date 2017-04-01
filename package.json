@@ -78,7 +78,10 @@
         "dush-methods",
         "minibase-create-plugin",
         "minibase",
-        "minibase-is-registered"
+        "minibase-is-registered",
+        "dush-options",
+        "dush-better-use",
+        "dush-promise"
       ]
     },
     "reflinks": [
