@@ -15,7 +15,6 @@ having always up-to-date dependencies through integrations
 like [GreenKeeper][gk-integration-url] and [David-DM][daviddm-url] service,
 this package has top quality.
 
-[![code climate][codeclimate-img]][codeclimate-url] 
 [![code style][standard-img]][standard-url] 
 [![commitizen friendly][czfriendly-img]][czfriendly-url] 
 [![greenkeeper friendly][gkfriendly-img]][gkfriendly-url] 
